@@ -1,28 +1,92 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Integral Desk | Seamless Patient Reception</title>
-    <meta name="description" content="Integral Desk offers modern, digital front desk services for doctors, clinics, and hospitals.">
+    <title>Integral Desk | Digital Healthcare Solutions</title>
+    <meta name="description"
+        content="Integral Desk helps healthcare providers reach their goals with efficient, reliable, and high-quality administrative support.">
     <link rel="stylesheet" href="css/styles.css">
     <!-- Font Awesome for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
+
 <body>
 
     <!-- Header Navigation -->
-    <header>
+    <header id="main-header">
         <nav class="container">
-            <a href="#hero" class="logo">
-                <i class="fa-solid fa-desktop"></i> Integral Desk
+            <a href="#" class="logo">
+                <svg class="nav-logo-svg" xmlns="http://www.w3.org/2000/svg" viewBox="40 130 960 250">
+                    <defs>
+                        <style>
+                            .cls-1 {
+                                letter-spacing: 0em;
+                            }
+
+                            .cls-2,
+                            .cls-3 {
+                                fill: currentColor;
+                            }
+
+                            .cls-3 {
+                                font-family: CanelaText-Regular, 'Canela Text';
+                                font-size: 117.57px;
+                            }
+
+                            .cls-4 {
+                                letter-spacing: -.02em;
+                            }
+
+                            .cls-5 {
+                                letter-spacing: -.02em;
+                            }
+
+                            .cls-6 {
+                                letter-spacing: 0em;
+                            }
+
+                            .cls-7 {
+                                letter-spacing: 0em;
+                            }
+                        </style>
+                    </defs>
+                    <g id="Layer_1">
+                        <path class="cls-2"
+                            d="M94.51,166.8l-4.12.16c-13.57.54-24.96,10.46-27.43,23.88l-17.02,89.64,4.12-.16c13.57-.54,24.96-10.46,27.43-23.88l17.03-89.64Z" />
+                        <path class="cls-2"
+                            d="M218.73,216.78l-.16-4.14c-.53-13.65-10.4-25.1-23.75-27.59l-89.14-17.12.16,4.14c.53,13.65,10.4,25.1,23.75,27.59l89.14,17.12Z" />
+                        <path class="cls-2"
+                            d="M168.28,341.47l4.12-.16c13.57-.54,24.96-10.46,27.43-23.88l17.02-89.64-4.12.16c-13.57.54-24.96,10.46-27.43,23.88l-17.03,89.64Z" />
+                        <path class="cls-2"
+                            d="M44.06,291.49l.16,4.14c.53,13.65,10.4,25.1,23.75,27.59l89.14,17.12-.16-4.14c-.53-13.65-10.4-25.1-23.75-27.59l-89.14-17.12Z" />
+                        <text class="cls-3" transform="translate(271.82 300.25)">
+                            <tspan class="cls-7" x="0" y="0">I</tspan>
+                            <tspan x="35.27" y="0">n</tspan>
+                            <tspan class="cls-5" x="104.87" y="0">t</tspan>
+                            <tspan class="cls-6" x="146.96" y="0">e</tspan>
+                            <tspan class="cls-1" x="206.22" y="0">g</tspan>
+                            <tspan class="cls-7" x="273.11" y="0">r</tspan>
+                            <tspan class="cls-4" x="317.32" y="0">a</tspan>
+                            <tspan x="380.33" y="0">l Desk</tspan>
+                        </text>
+                    </g>
+                </svg>
             </a>
-            <ul class="nav-links">
-                <li><a href="#about">About</a></li>
-                <li><a href="#services">Services</a></li>
-                <li><a href="#benefits">Benefits</a></li>
-                <li><a href="#contact" class="btn btn-primary" style="padding: 8px 20px; color: white;">Contact Us</a></li>
-            </ul>
+            <div class="nav-wrapper">
+                <ul class="nav-links">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#testimonials">Reviews</a></li>
+                    <li><a href="faq.html">FAQ</a></li>
+                </ul>
+            </div>
+            <div class="header-cta">
+                <a href="#contact" class="btn btn-glass" style="padding: 8px 20px;"><i class="fa-solid fa-phone"
+                        style="margin-right: 8px;"></i>Contact Us</a>
+            </div>
             <button class="mobile-menu-btn">
                 <i class="fa-solid fa-bars"></i>
             </button>
@@ -32,40 +96,74 @@
     <!-- Hero Section -->
     <section id="hero">
         <div class="container hero-content">
-            <div class="hero-text animate-on-scroll">
-                <h1>Digital Front Desk Support</h1>
-                <p>Integral Desk helps doctors, clinics, and hospitals manage appointments, follow-ups, communication, and routine workflows with confidence and efficiency.</p>
-                <a href="#services" class="btn btn-primary">Explore Services</a>
+            <div class="hero-text reveal">
+                <h1><span style="color: var(--integral-blue);">Seamless Healthcare</span> <span
+                        style="color: var(--flow-pulse);">Operations</span></h1>
+                <p>Elevate your healthcare practice with professional administrative support designed to streamline
+                    operations and enhance patient experiences.</p>
+                <div>
+                    <a href="#about" class="btn btn-ghost">About Us</a>
+                    <a href="#contact" class="btn btn-secondary" style="margin-left: 10px;">Let's Talk</a>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- About Section -->
-    <section id="about">
+    <section id="about" class="light-bg">
         <div class="container">
-            <div class="about-content">
-                <div class="about-image animate-on-scroll">
-                    <img src="images/about.png" alt="Clean Medical Reception Desk">
+            <div class="about-grid">
+                <div class="about-images-mosaic reveal">
+
+                    <div class="mosaic-img img-2">
+                        <img src="images/team.png" alt="Team meeting">
+                    </div>
+                    <div class="mosaic-img img-3">
+                        <img src="images/office_screens_sharp_bg.png" alt="Dashboard">
+                    </div>
+                    <div class="experience-badge">
+                        <h3>+5</h3>
+                        <br />
+                        <p style="color: var(--text-muted);">years of experience</p>
+                    </div>
                 </div>
-                <div class="about-text animate-on-scroll delay-2">
-                    <h2>The Problem We Solve</h2>
-                    <p>Healthcare providers are busy. Doctors and hospital teams often lose valuable time handling routine administrative work instead of focusing on patient care.</p>
-                    <p><strong>Integral Desk</strong> becomes your trusted digital front desk partner. We handle routine operational tasks—from missed calls to manual coordination—so your team isn't buried under administrative pressure.</p>
-                </div>
-            </div>
-            
-            <div class="about-content" style="margin-top: 5rem;">
-                <div class="about-text animate-on-scroll delay-1">
-                    <h2>Who We Serve</h2>
-                    <p>Our solutions are engineered to adapt to various healthcare environments, delivering specialized support right where it's needed.</p>
-                    <ul style="list-style-type: none; margin-top: 1.5rem;">
-                        <li style="margin-bottom: 0.8rem;"><i class="fa-solid fa-user-doctor" style="color: var(--primary-color); width: 25px;"></i> <strong>Doctors:</strong> Reduce distractions to give you more time for patient care.</li>
-                        <li style="margin-bottom: 0.8rem;"><i class="fa-solid fa-house-medical" style="color: var(--primary-color); width: 25px;"></i> <strong>Clinics:</strong> Better front-desk organization and smoother communication.</li>
-                        <li style="margin-bottom: 0.8rem;"><i class="fa-solid fa-hospital" style="color: var(--primary-color); width: 25px;"></i> <strong>Hospitals:</strong> Scalable operational support and workflow consistency.</li>
+                <div class="about-text reveal delay-200">
+                    <h4
+                        style="color: var(--flow-pulse); font-family: var(--font-body); font-weight: bold; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 0.5rem; font-size: 1rem;">
+                        About Integral Desk</h4>
+                    <h2 style="font-size: 2.8rem; margin-bottom: 1.5rem; line-height: 1.2;">Empowering Healthcare
+                        with<br><span class="hollow-text">Tailored Solutions.</span></h2>
+
+                    <p style="color: var(--text-muted); line-height: 1.6; margin-bottom: 1.2rem; font-size: 1.1rem;">
+                        Welcome to <strong>Integral Desk</strong>, your trusted partner in healthcare administration.
+                        Our team is dedicated to providing <strong>high-quality support</strong> that helps healthcare
+                        providers work more efficiently, reducing administrative burdens so they can focus on
+                        <strong>patient care</strong>.
+                    </p>
+
+                    <p style="color: var(--text-muted); line-height: 1.6; margin-bottom: 1.2rem; font-size: 1.1rem;">At
+                        Integral Desk, we ensure our freelancers comply with all relevant regulations in the healthcare
+                        industry. Our team is trained and selected to meet <strong>U.S. freelance guidelines</strong>,
+                        including:</p>
+
+                    <ul class="about-list" style="font-size: 1.1rem;">
+                        <li><i class="fa-regular fa-circle-dot"></i> Self-employment tax compliance</li>
+                        <li><i class="fa-regular fa-circle-dot"></i> Proper contracts</li>
+                        <li><i class="fa-regular fa-circle-dot"></i> Licensing requirements</li>
                     </ul>
-                </div>
-                <div class="about-image animate-on-scroll delay-2">
-                    <img src="images/team.png" alt="Medical Team">
+
+                    <p
+                        style="color: var(--text-muted); line-height: 1.6; margin-top: 1.5rem; margin-bottom: 0; font-size: 1.1rem;">
+                        We believe efficient administration is key to successful healthcare practices. With our
+                        commitment to quality and attention to detail, Integral Desk is here to support your practice
+                        and help you thrive. Let us take care of your administrative tasks so you can focus on what
+                        truly matters: <strong>outstanding patient care</strong>.</p>
+
+                    <div style="margin-top: 2rem;">
+                        <a href="services.html" class="btn btn-ghost"
+                            style="padding: 12px 30px; font-size: 1.05rem;">Get the offer <i
+                                class="fa-solid fa-arrow-right" style="margin-left: 8px;"></i></a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -74,114 +172,184 @@
     <!-- Services Section -->
     <section id="services">
         <div class="container">
-            <h2 class="animate-on-scroll">Our Core Services</h2>
+            <h2 class="section-title reveal">How can we help?</h2>
+            <p style="text-align: center; max-width: 700px; margin: 0 auto 3rem; color: var(--text-muted); font-size: 1.1rem;"
+                class="reveal delay-100">
+                Are you in need of specialized administrative support for your healthcare practice? Integral Desk offers
+                tailored services to improve patient care.
+            </p>
             <div class="services-grid">
-                <div class="service-card animate-on-scroll">
-                    <div class="service-icon"><i class="fa-solid fa-calendar-check"></i></div>
-                    <h3>Appointment Management</h3>
-                    <p>Organize scheduling, confirmations, and appointment coordination to reduce no-shows and clinic gaps.</p>
-                </div>
-                <div class="service-card animate-on-scroll delay-1">
-                    <div class="service-icon"><i class="fa-solid fa-user-clock"></i></div>
-                    <h3>Patient Follow-Up</h3>
-                    <p>Structured patient follow-up communication to ensure patients don't miss important reminders or next steps.</p>
-                </div>
-                <div class="service-card animate-on-scroll delay-2">
+                <div class="service-card reveal delay-200">
                     <div class="service-icon"><i class="fa-solid fa-headset"></i></div>
-                    <h3>Front Desk Operations</h3>
-                    <p>Support daily administrative communication so your internal team can focus on higher-priority work.</p>
+                    <h3>Provider Support</h3>
+                    <p>Dedicated live support for healthcare providers, managing patient check-ins, appointment
+                        scheduling, and special requests.</p>
                 </div>
-                <div class="service-card animate-on-scroll">
-                    <div class="service-icon"><i class="fa-solid fa-comments"></i></div>
-                    <h3>Patient Communication</h3>
-                    <p>Improve response flow and reduce missed communication between patients and healthcare providers.</p>
+                <div class="service-card reveal delay-300">
+                    <div class="service-icon"><i class="fa-solid fa-calendar-check"></i></div>
+                    <h3>Scheduling Solutions</h3>
+                    <p>Streamlined scheduling solutions optimizing calendar management and minimizing patient wait times
+                        efficiently.</p>
                 </div>
-                <div class="service-card animate-on-scroll delay-1">
-                    <div class="service-icon"><i class="fa-solid fa-network-wired"></i></div>
-                    <h3>Workflow Coordination</h3>
-                    <p>Structure routine workflows and improve daily coordination for a smoother, organized operation.</p>
+                <div class="service-card reveal delay-400">
+                    <div class="service-icon"><i class="fa-solid fa-laptop-medical"></i></div>
+                    <h3>Medical Virtual Assistant</h3>
+                    <p>Remote employees acting as an extension of your team, trained to handle your specific medical
+                        workflow.</p>
                 </div>
-                <div class="service-card animate-on-scroll delay-2">
-                    <div class="service-icon"><i class="fa-solid fa-chart-line"></i></div>
-                    <h3>Operational Reporting</h3>
-                    <p>Give your healthcare team better visibility on daily activity, bottlenecks, and overall operational performance.</p>
+            </div>
+            <div style="text-align: center; margin-top: 4rem;">
+                <a href="services.html" class="btn btn-primary" style="padding: 15px 40px; font-size: 1.1rem;">View All
+                    Services</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Fun Facts Section -->
+    <section id="fun-facts">
+        <div class="container">
+            <div class="reveal">
+                <h4
+                    style="color: var(--flow-pulse); font-family: var(--font-body); font-weight: bold; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 0.5rem;">
+                    Fun Facts</h4>
+                <h2>Over the years we have done many things that we are proud of.</h2>
+            </div>
+            <div class="facts-grid">
+                <div class="fact-item reveal delay-100">
+                    <div style="font-size: 2.5rem; color: var(--flow-pulse); margin-bottom: 1rem;"><i
+                            class="fa-solid fa-award"></i></div>
+                    <h3>5+</h3>
+                    <p>Years of Experience</p>
+                </div>
+                <div class="fact-item reveal delay-200">
+                    <div style="font-size: 2.5rem; color: var(--flow-pulse); margin-bottom: 1rem;"><i
+                            class="fa-solid fa-users"></i></div>
+                    <h3>3,000+</h3>
+                    <p>Recurrent Active Patients</p>
+                </div>
+                <div class="fact-item reveal delay-300">
+                    <div style="font-size: 2.5rem; color: var(--flow-pulse); margin-bottom: 1rem;"><i
+                            class="fa-solid fa-calendar-check"></i></div>
+                    <h3>100k+</h3>
+                    <p>Scheduling Solutions</p>
+                </div>
+                <div class="fact-item reveal delay-400">
+                    <div style="font-size: 2.5rem; color: var(--flow-pulse); margin-bottom: 1rem;"><i
+                            class="fa-solid fa-star"></i></div>
+                    <h3>+100</h3>
+                    <p>Positive Reviews</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Benefits Section -->
-    <section id="benefits">
+    <!-- Software We Use Section -->
+    <section id="software" class="light-bg">
         <div class="container">
-            <h2 class="animate-on-scroll">Why Choose Us</h2>
-            <div class="benefits-grid">
-                <div class="benefit-item animate-on-scroll">
-                    <div class="benefit-icon"><i class="fa-solid fa-check-circle"></i></div>
-                    <div>
-                        <h4>More Time for Care</h4>
-                        <p>Reduce administrative distractions so doctors can focus entirely on patients.</p>
+            <div style="text-align: center;" class="reveal">
+                <h4
+                    style="color: var(--integral-blue); font-family: var(--font-body); font-weight: bold; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 0.5rem;">
+                    Selected Software</h4>
+                <h2 class="section-title" style="margin-bottom: 1rem;">Softwares That We Use</h2>
+                <p style="color: var(--text-muted); max-width: 600px; margin: 0 auto;">Our team is proficient with
+                    top-tier EHR and communication tools to seamlessly integrate into your current ecosystem.</p>
+            </div>
+
+            <div class="software-grid">
+                <div class="software-item reveal delay-100">
+                    <div
+                        style="background: var(--white); padding: 30px; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.05);">
+                        <i class="fa-solid fa-phone-volume" style="font-size: 4rem; color: var(--deep-navy);"></i>
                     </div>
+                    <h4>RingCentral</h4>
+                    <p style="font-size: 0.9rem; color: var(--text-muted);">Communication</p>
                 </div>
-                <div class="benefit-item animate-on-scroll delay-1">
-                    <div class="benefit-icon"><i class="fa-solid fa-check-circle"></i></div>
-                    <div>
-                        <h4>Reduced Staff Pressure</h4>
-                        <p>Relieve your internal team from repetitive communication and routine tasks.</p>
+                <div class="software-item reveal delay-200">
+                    <div
+                        style="background: var(--white); padding: 30px; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.05);">
+                        <i class="fa-solid fa-video" style="font-size: 4rem; color: var(--integral-blue);"></i>
                     </div>
+                    <h4>Zoom</h4>
+                    <p style="font-size: 0.9rem; color: var(--text-muted);">Telehealth</p>
                 </div>
-                <div class="benefit-item animate-on-scroll delay-2">
-                    <div class="benefit-icon"><i class="fa-solid fa-check-circle"></i></div>
-                    <div>
-                        <h4>Privacy-Conscious</h4>
-                        <p>Designed with healthcare-aware workflows and confidentiality in mind.</p>
+                <div class="software-item reveal delay-300">
+                    <div
+                        style="background: var(--white); padding: 30px; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.05);">
+                        <i class="fa-solid fa-file-medical" style="font-size: 4rem; color: var(--flow-pulse);"></i>
                     </div>
+                    <h4>Insync</h4>
+                    <p style="font-size: 0.9rem; color: var(--text-muted);">EHR System</p>
                 </div>
-                <div class="benefit-item animate-on-scroll delay-3">
-                    <div class="benefit-icon"><i class="fa-solid fa-check-circle"></i></div>
-                    <div>
-                        <h4>Scalable Support</h4>
-                        <p>Reliable front-desk handling that scales whether you're a single practice or a large hospital.</p>
-                    </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials">
+        <div class="container">
+            <h2 class="section-title reveal">What Our Clients Say</h2>
+            <div class="testimonials-grid">
+
+                <div class="testimonial-card reveal delay-100">
+                    <p class="testimonial-text">"Neuro Behavioral center is making life easier for me. The customer
+                        service is great and I can make my appointment easily. They are very good at following up and I
+                        highly recommend them. Thanks you so much!"</p>
+                    <p class="testimonial-author">Natasha Hosseininia</p>
+                    <p class="testimonial-role">Patient</p>
+                </div>
+
+                <div class="testimonial-card reveal delay-200">
+                    <p class="testimonial-text">"The scheduling and technical support is outstanding. Made things so
+                        much easier with patience and personal support. Spoke with several people each of whom gave so
+                        much support."</p>
+                    <p class="testimonial-author">John Denver</p>
+                    <p class="testimonial-role">Patient</p>
+                </div>
+
+                <div class="testimonial-card reveal delay-300">
+                    <p class="testimonial-text">"I have been a client for over 5 years and have had wonderful
+                        experiences. The support staff is also very helpful and friendly. Eddy was a tremendous help
+                        straightening out a pharmacy situation."</p>
+                    <p class="testimonial-author">Pamela Mcknight</p>
+                    <p class="testimonial-role">Patient</p>
+                </div>
+
+                <div class="testimonial-card reveal delay-100">
+                    <p class="testimonial-text">"The staff and care providers are amazing! Ekaterina has been a Godsend
+                        and Mo in the office takes the time when the insurance company is difficult!"</p>
+                    <p class="testimonial-author">Jennifer Webster</p>
+                    <p class="testimonial-role">Patient</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Contact Section -->
-    <section id="contact">
+    <section id="contact" style="background: var(--deep-navy) url('images/pattern.png');">
         <div class="container">
-            <h2 class="animate-on-scroll">Get in Touch</h2>
-            <div class="contact-container animate-on-scroll delay-1">
-                <form id="contactForm" action="https://formsubmit.co/ajax/info@integraldesk.com" method="POST">
-                    <!-- FormSubmit specific inputs -->
-                    <input type="hidden" name="_subject" value="New Submission from Integral Desk Website!">
-                    <input type="hidden" name="_template" value="table">
-                    <input type="text" name="_honey" style="display:none">
-
-                    <div class="form-grid">
-                        <div class="form-group">
-                            <label for="name">Full Name</label>
-                            <input type="text" id="name" name="name" class="form-control" required placeholder="Dr. John Doe">
-                        </div>
-                        <div class="form-group">
-                            <label for="email">Email Address</label>
-                            <input type="email" id="email" name="email" class="form-control" required placeholder="contact@yourclinic.com">
-                        </div>
-                        <div class="form-group">
-                            <label for="phone">Phone Number</label>
-                            <input type="tel" id="phone" name="phone" class="form-control" placeholder="(555) 123-4567">
-                        </div>
-                        <div class="form-group">
-                            <label for="organization">Organization Name</label>
-                            <input type="text" id="organization" name="organization" class="form-control" placeholder="City Medical Clinic">
-                        </div>
+            <div class="contact-container">
+                <h2 style="color: var(--deep-navy); margin-bottom: 2rem; text-align: center;">Get in Touch</h2>
+                <form id="contactForm" action="#" method="POST">
+                    <div class="form-group">
+                        <label for="name">Full Name</label>
+                        <input type="text" id="name" name="name" class="form-control" required
+                            placeholder="Dr. John Doe">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" name="email" class="form-control" required
+                            placeholder="contact@yourclinic.com">
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone" name="phone" class="form-control" placeholder="(555) 123-4567">
                     </div>
                     <div class="form-group">
                         <label for="message">How can we help?</label>
-                        <textarea id="message" name="message" class="form-control" required placeholder="Tell us about your practice's needs..."></textarea>
+                        <textarea id="message" name="message" class="form-control" rows="4" required
+                            placeholder="Tell us about your practice's needs..."></textarea>
                     </div>
                     <button type="submit" class="btn btn-primary" style="width: 100%;">Send Message</button>
-                    <div id="formMessage" class="form-message"></div>
                 </form>
             </div>
         </div>
@@ -190,10 +358,70 @@
     <!-- Footer -->
     <footer>
         <div class="container">
-            <p>&copy; 2026 Integral Desk. All rights reserved.</p>
+            <a href="index.html" class="logo" style="display: block; margin-bottom: 1rem;">
+                <svg class="footer-logo-svg" xmlns="http://www.w3.org/2000/svg" viewBox="40 130 960 250"
+                    style="height: 50px; color: var(--white);">
+                    <defs>
+                        <style>
+                            .cls-1 {
+                                letter-spacing: 0em;
+                            }
+
+                            .cls-2,
+                            .cls-3 {
+                                fill: currentColor;
+                            }
+
+                            .cls-3 {
+                                font-family: CanelaText-Regular, 'Canela Text';
+                                font-size: 117.57px;
+                            }
+
+                            .cls-4 {
+                                letter-spacing: -.02em;
+                            }
+
+                            .cls-5 {
+                                letter-spacing: -.02em;
+                            }
+
+                            .cls-6 {
+                                letter-spacing: 0em;
+                            }
+
+                            .cls-7 {
+                                letter-spacing: 0em;
+                            }
+                        </style>
+                    </defs>
+                    <g id="Layer_1">
+                        <path class="cls-2"
+                            d="M94.51,166.8l-4.12.16c-13.57.54-24.96,10.46-27.43,23.88l-17.02,89.64,4.12-.16c13.57-.54,24.96-10.46,27.43-23.88l17.03-89.64Z" />
+                        <path class="cls-2"
+                            d="M218.73,216.78l-.16-4.14c-.53-13.65-10.4-25.1-23.75-27.59l-89.14-17.12.16,4.14c.53,13.65,10.4,25.1,23.75,27.59l89.14,17.12Z" />
+                        <path class="cls-2"
+                            d="M168.28,341.47l4.12-.16c13.57-.54,24.96-10.46,27.43-23.88l17.02-89.64-4.12.16c-13.57.54-24.96,10.46-27.43,23.88l-17.03,89.64Z" />
+                        <path class="cls-2"
+                            d="M44.06,291.49l.16,4.14c.53,13.65,10.4,25.1,23.75,27.59l89.14,17.12-.16-4.14c-.53-13.65-10.4-25.1-23.75-27.59l-89.14-17.12Z" />
+                        <text class="cls-3" transform="translate(271.82 300.25)">
+                            <tspan class="cls-7" x="0" y="0">I</tspan>
+                            <tspan x="35.27" y="0">n</tspan>
+                            <tspan class="cls-5" x="104.87" y="0">t</tspan>
+                            <tspan class="cls-6" x="146.96" y="0">e</tspan>
+                            <tspan class="cls-1" x="206.22" y="0">g</tspan>
+                            <tspan class="cls-7" x="273.11" y="0">r</tspan>
+                            <tspan class="cls-4" x="317.32" y="0">a</tspan>
+                            <tspan x="380.33" y="0">l Desk</tspan>
+                        </text>
+                    </g>
+                </svg>
+            </a>
+            <p>&copy; 2026 Integral Desk. All rights reserved. <br><span
+                    style="font-size: 0.9rem; opacity: 0.7;">Digital Healthcare Solutions</span></p>
         </div>
     </footer>
 
     <script src="js/script.js"></script>
 </body>
+
 </html>

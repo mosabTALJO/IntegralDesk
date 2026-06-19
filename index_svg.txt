@@ -1,0 +1,55 @@
+<svg class="nav-logo-svg" xmlns="http://www.w3.org/2000/svg" viewBox="40 130 960 250">
+                    <defs>
+                        <style>
+                            .cls-1 {
+                                letter-spacing: 0em;
+                            }
+
+                            .cls-2,
+                            .cls-3 {
+                                fill: currentColor;
+                            }
+
+                            .cls-3 {
+                                font-family: CanelaText-Regular, 'Canela Text';
+                                font-size: 117.57px;
+                            }
+
+                            .cls-4 {
+                                letter-spacing: -.02em;
+                            }
+
+                            .cls-5 {
+                                letter-spacing: -.02em;
+                            }
+
+                            .cls-6 {
+                                letter-spacing: 0em;
+                            }
+
+                            .cls-7 {
+                                letter-spacing: 0em;
+                            }
+                        </style>
+                    </defs>
+                    <g id="Layer_1">
+                        <path class="cls-2"
+                            d="M94.51,166.8l-4.12.16c-13.57.54-24.96,10.46-27.43,23.88l-17.02,89.64,4.12-.16c13.57-.54,24.96-10.46,27.43-23.88l17.03-89.64Z" />
+                        <path class="cls-2"
+                            d="M218.73,216.78l-.16-4.14c-.53-13.65-10.4-25.1-23.75-27.59l-89.14-17.12.16,4.14c.53,13.65,10.4,25.1,23.75,27.59l89.14,17.12Z" />
+                        <path class="cls-2"
+                            d="M168.28,341.47l4.12-.16c13.57-.54,24.96-10.46,27.43-23.88l17.02-89.64-4.12.16c-13.57.54-24.96,10.46-27.43,23.88l-17.03,89.64Z" />
+                        <path class="cls-2"
+                            d="M44.06,291.49l.16,4.14c.53,13.65,10.4,25.1,23.75,27.59l89.14,17.12-.16-4.14c-.53-13.65-10.4-25.1-23.75-27.59l-89.14-17.12Z" />
+                        <text class="cls-3" transform="translate(271.82 300.25)">
+                            <tspan class="cls-7" x="0" y="0">I</tspan>
+                            <tspan x="35.27" y="0">n</tspan>
+                            <tspan class="cls-5" x="104.87" y="0">t</tspan>
+                            <tspan class="cls-6" x="146.96" y="0">e</tspan>
+                            <tspan class="cls-1" x="206.22" y="0">g</tspan>
+                            <tspan class="cls-7" x="273.11" y="0">r</tspan>
+                            <tspan class="cls-4" x="317.32" y="0">a</tspan>
+                            <tspan x="380.33" y="0">l Desk</tspan>
+                        </text>
+                    </g>
+                </svg>
