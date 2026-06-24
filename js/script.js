@@ -39,4 +39,51 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     revealElements.forEach(el => revealObserver.observe(el));
+
+    // Service Modal Logic
+    const modal = document.getElementById('service-modal');
+    const modalBody = document.getElementById('modal-body');
+    const modalClose = document.querySelector('.modal-close');
+    const serviceCards = document.querySelectorAll('.expandable-service-card');
+
+    if (modal && modalBody) {
+        serviceCards.forEach(card => {
+            card.addEventListener('click', () => {
+                // Extract content from the clicked card
+                const title = card.querySelector('h3').outerHTML;
+                const subtitleEl = card.querySelector('.service-subtitle');
+                const subtitle = subtitleEl ? subtitleEl.outerHTML : '';
+                const normalContent = card.querySelector('.service-content-normal').innerHTML;
+                const expandedContent = card.querySelector('.service-content-expanded').innerHTML;
+
+                // Populate modal body
+                modalBody.innerHTML = `
+                    ${title}
+                    ${subtitle}
+                    <div class="service-content-normal" style="margin-bottom: 1.5rem; color: var(--text-muted); font-size: 1.1rem; line-height: 1.6;">${normalContent}</div>
+                    <div class="service-content-expanded" style="display: block; border-top: 1px solid rgba(0,0,0,0.05); padding-top: 1.5rem; color: var(--text-muted); font-size: 1.1rem; line-height: 1.6;">${expandedContent}</div>
+                `;
+
+                // Show modal
+                modal.classList.add('active');
+                document.body.style.overflow = 'hidden'; // Prevent background scrolling
+            });
+        });
+
+        // Close modal on close button click
+        if (modalClose) {
+            modalClose.addEventListener('click', () => {
+                modal.classList.remove('active');
+                document.body.style.overflow = '';
+            });
+        }
+
+        // Close modal on outside click
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                modal.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+        });
+    }
 });

@@ -449,41 +449,153 @@ header.scrolled .nav-links a:hover {
     border-radius: 20px;
 }
 
-/* Services Section */
-
-.services-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
+/* Expandable Services Grid */
+.expandable-services-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    max-width: 850px;
+    margin: 0 auto;
 }
 
-.service-card {
+.expandable-service-card {
     background: var(--white);
-    padding: 2.5rem 2rem;
+    border: 1px solid rgba(0, 0, 0, 0.05);
     border-radius: 15px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-    transition: var(--transition);
-    text-align: center;
+    padding: 2.5rem;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.02);
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    cursor: pointer;
+    overflow: hidden;
 }
 
-.service-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 15px 40px rgba(0, 71, 229, 0.1);
+.expandable-service-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--flow-pulse);
+    box-shadow: 0 10px 30px rgba(0, 71, 229, 0.08);
 }
 
-.service-icon {
-    font-size: 3rem;
-    color: var(--flow-pulse);
+.expandable-service-card h3 {
+    margin-bottom: 0.5rem;
+    font-size: 1.8rem;
+    color: var(--deep-navy);
+}
+
+.service-subtitle {
+    font-size: 1.1rem;
+    color: var(--text-muted);
+    margin-bottom: 1rem;
+    font-family: var(--font-body);
+}
+
+.service-content-normal {
+    color: var(--text-muted);
+    font-size: 1.1rem;
+    line-height: 1.6;
     margin-bottom: 1.5rem;
 }
 
-.service-card h3 {
-    margin-bottom: 1rem;
-    font-size: 1.5rem;
+.service-content-expanded {
+    display: none;
+    color: var(--text-muted);
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+    border-top: 1px solid rgba(0,0,0,0.05);
+    padding-top: 1.5rem;
 }
 
-.service-card p {
+.service-content-expanded p {
+    margin-bottom: 1rem;
+}
+
+.service-content-expanded p:last-child {
+    margin-bottom: 0;
+}
+
+.expand-indicator {
+    transition: var(--transition);
+}
+
+.expandable-service-card:hover .expand-indicator {
+    color: var(--flow-pulse) !important;
+}
+
+/* Modal Overlay */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(7, 7, 48, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2000;
+    opacity: 0;
+    visibility: hidden;
+    transition: var(--transition);
+    backdrop-filter: blur(5px);
+}
+
+.modal-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal-content {
+    background: var(--white);
+    border-radius: 15px;
+    width: 90%;
+    max-width: 800px;
+    max-height: 90vh;
+    overflow-y: auto;
+    padding: 3rem;
+    position: relative;
+    transform: scale(0.9);
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+}
+
+.modal-overlay.active .modal-content {
+    transform: scale(1);
+}
+
+.modal-content h3 {
+    font-size: 2.2rem;
+    font-family: var(--font-heading);
+    color: var(--deep-navy);
+    margin-bottom: 1.5rem;
+    line-height: 1.2;
+}
+
+.modal-content .service-subtitle {
+    font-size: 1.15rem;
+    color: var(--integral-blue);
+    margin-bottom: 1.5rem;
+    font-weight: 500;
+}
+
+.modal-close {
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
     color: var(--text-muted);
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.modal-close:hover {
+    color: var(--integral-blue);
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
 /* Fun Facts Section */
@@ -515,35 +627,93 @@ header.scrolled .nav-links a:hover {
     font-weight: 500;
 }
 
-/* Software Section */
-.software-grid {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 3rem;
-    margin-top: 3rem;
+/* Process Grid Section */
+.process-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
 }
 
-.software-item {
-    text-align: center;
-    width: 200px;
-}
-
-.software-item img {
-    width: 100%;
-    height: auto;
-    border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+.process-step {
+    background: var(--white);
+    padding: 2.5rem 2rem;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    text-align: left;
+    position: relative;
+    border-top: 4px solid var(--integral-blue);
     transition: var(--transition);
 }
 
-.software-item img:hover {
-    transform: scale(1.05);
+.process-step:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
 }
 
-.software-item h4 {
-    margin-top: 1rem;
+.step-number {
+    position: absolute;
+    top: -20px;
+    left: 2rem;
+    background: var(--flow-pulse);
+    color: var(--deep-navy);
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    font-weight: bold;
     font-size: 1.2rem;
+    box-shadow: 0 4px 10px rgba(13, 216, 172, 0.3);
+}
+
+.process-step h3 {
+    margin-bottom: 1rem;
+    margin-top: 0.5rem;
+    font-size: 1.4rem;
+}
+
+.process-step p {
+    color: var(--text-muted);
+}
+
+/* Software Logo Grid */
+.software-logo-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.2rem;
+    margin-top: 3rem;
+}
+
+.software-logo-item {
+    background: var(--white);
+    padding: 0.8rem 1.2rem;
+    border-radius: 30px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.04);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: var(--transition);
+    border: 1px solid rgba(0,0,0,0.03);
+}
+
+.software-logo-item:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+    border-color: rgba(0, 71, 229, 0.2);
+}
+
+.software-logo-item i {
+    font-size: 1.2rem;
+    color: var(--integral-blue);
+}
+
+.software-logo-item span {
+    font-weight: 500;
+    color: var(--text-dark);
+    font-size: 0.95rem;
 }
 
 /* Testimonials Section */
@@ -636,7 +806,8 @@ footer {
     }
 
     .about-grid,
-    .services-grid,
+    .expandable-services-grid,
+    .process-grid,
     .facts-grid,
     .testimonials-grid {
         grid-template-columns: 1fr;
