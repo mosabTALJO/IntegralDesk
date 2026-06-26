@@ -40,50 +40,153 @@ document.addEventListener('DOMContentLoaded', () => {
 
     revealElements.forEach(el => revealObserver.observe(el));
 
-    // Service Modal Logic
-    const modal = document.getElementById('service-modal');
-    const modalBody = document.getElementById('modal-body');
-    const modalClose = document.querySelector('.modal-close');
+    // Service Modal Logic (Expanding Card Animation via FLIP)
     const serviceCards = document.querySelectorAll('.expandable-service-card');
+    
+    // Create backdrop
+    const backdrop = document.createElement('div');
+    backdrop.className = 'modal-backdrop-only';
+    document.body.appendChild(backdrop);
+    
+    let activeCard = null;
+    let placeholder = null;
 
-    if (modal && modalBody) {
-        serviceCards.forEach(card => {
-            card.addEventListener('click', () => {
-                // Extract content from the clicked card
-                const title = card.querySelector('h3').outerHTML;
-                const subtitleEl = card.querySelector('.service-subtitle');
-                const subtitle = subtitleEl ? subtitleEl.outerHTML : '';
-                const normalContent = card.querySelector('.service-content-normal').innerHTML;
-                const expandedContent = card.querySelector('.service-content-expanded').innerHTML;
+    const closeActiveCard = () => {
+        if (!activeCard) return;
 
-                // Populate modal body
-                modalBody.innerHTML = `
-                    ${title}
-                    ${subtitle}
-                    <div class="service-content-normal" style="margin-bottom: 1.5rem; color: var(--text-muted); font-size: 1.1rem; line-height: 1.6;">${normalContent}</div>
-                    <div class="service-content-expanded" style="display: block; border-top: 1px solid rgba(0,0,0,0.05); padding-top: 1.5rem; color: var(--text-muted); font-size: 1.1rem; line-height: 1.6;">${expandedContent}</div>
-                `;
+        // Fade out expanded content
+        activeCard.classList.remove('expanded-content-fade-in');
+        activeCard.classList.remove('expanded-content-visible');
+        backdrop.classList.remove('active');
 
-                // Show modal
-                modal.classList.add('active');
-                document.body.style.overflow = 'hidden'; // Prevent background scrolling
-            });
-        });
-
-        // Close modal on close button click
-        if (modalClose) {
-            modalClose.addEventListener('click', () => {
-                modal.classList.remove('active');
-                document.body.style.overflow = '';
-            });
+        if (placeholder) {
+            const phRect = placeholder.getBoundingClientRect();
+            activeCard.style.top = phRect.top + 'px';
+            activeCard.style.left = phRect.left + 'px';
+            activeCard.style.width = phRect.width + 'px';
+            activeCard.style.height = phRect.height + 'px';
+            activeCard.style.overflowY = 'hidden'; // hide scrollbar while animating back
         }
 
-        // Close modal on outside click
-        modal.addEventListener('click', (e) => {
-            if (e.target === modal) {
-                modal.classList.remove('active');
+        const currentCard = activeCard; // Scope for timeout
+        
+        setTimeout(() => {
+            currentCard.style.position = '';
+            currentCard.style.top = '';
+            currentCard.style.left = '';
+            currentCard.style.width = '';
+            currentCard.style.height = '';
+            currentCard.style.margin = '';
+            currentCard.style.zIndex = '';
+            currentCard.style.transition = '';
+            currentCard.style.overflowY = '';
+            currentCard.classList.remove('expanding-active');
+            if (placeholder) {
+                placeholder.remove();
+                placeholder = null;
+            }
+            if (activeCard === currentCard) {
+                activeCard = null;
                 document.body.style.overflow = '';
             }
+        }, 500); // Wait for CSS transition (0.5s) to finish
+    };
+
+    backdrop.addEventListener('click', closeActiveCard);
+
+    serviceCards.forEach(card => {
+        // Create a close button for each card
+        const closeBtn = document.createElement('button');
+        closeBtn.className = 'card-close-btn';
+        closeBtn.innerHTML = '<i class="fa-solid fa-xmark"></i>';
+        card.appendChild(closeBtn);
+
+        closeBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            closeActiveCard();
         });
-    }
+
+        // Prevent clicks inside the expanded content from closing the card
+        const innerContent = card.querySelector('.service-content-expanded');
+        if(innerContent) {
+             innerContent.addEventListener('click', (e) => e.stopPropagation());
+        }
+
+        card.addEventListener('click', () => {
+            if (activeCard) return; // Prevent clicking others while one is active
+
+            activeCard = card;
+            const rect = card.getBoundingClientRect();
+
+            // Create placeholder with exact dimensions to keep grid from collapsing
+            placeholder = document.createElement('div');
+            placeholder.className = 'expandable-service-card card-placeholder';
+            placeholder.style.width = rect.width + 'px';
+            placeholder.style.height = rect.height + 'px';
+            placeholder.style.visibility = 'hidden';
+            placeholder.style.margin = '0';
+            card.parentNode.insertBefore(placeholder, card);
+
+            // Set initial fixed position for FLIP
+            card.style.position = 'fixed';
+            card.style.top = rect.top + 'px';
+            card.style.left = rect.left + 'px';
+            card.style.width = rect.width + 'px';
+            card.style.height = rect.height + 'px';
+            card.style.margin = '0';
+            card.style.zIndex = '2001';
+            card.style.transition = 'none'; // CRITICAL: No transition during setup/measurement
+
+            document.body.style.overflow = 'hidden';
+
+            // Force layout
+            void card.offsetHeight;
+
+            // 1. MEASUREMENT PHASE
+            card.classList.add('expanding-active');
+            card.classList.add('expanded-content-visible');
+
+            const targetWidth = Math.min(window.innerWidth * 0.9, 800);
+            
+            // Allow card to shrink to content for measurement
+            card.style.width = targetWidth + 'px';
+            card.style.height = 'auto';
+            
+            void card.offsetHeight; 
+            
+            // Get the real height of the content
+            let targetHeight = card.getBoundingClientRect().height;
+            
+            const maxHeight = window.innerHeight * 0.9;
+            const isScrolling = targetHeight > maxHeight;
+            if (isScrolling) targetHeight = maxHeight;
+
+            // 2. REVERT TO TEASER STATE (Pre-Animation)
+            card.classList.remove('expanded-content-visible');
+            card.style.width = rect.width + 'px';
+            card.style.height = rect.height + 'px';
+
+            void card.offsetHeight;
+
+            // 3. START ACTUAL ANIMATION
+            card.classList.add('expanded-content-visible');
+            card.style.transition = 'all 0.5s cubic-bezier(0.4, 0, 0.2, 1)';
+            
+            const targetLeft = (window.innerWidth - targetWidth) / 2;
+            const targetTop = (window.innerHeight - targetHeight) / 2;
+
+            card.style.top = targetTop + 'px';
+            card.style.left = targetLeft + 'px';
+            card.style.width = targetWidth + 'px';
+            card.style.height = targetHeight + 'px';
+            
+            card.style.overflowY = isScrolling ? 'auto' : 'hidden';
+
+            backdrop.classList.add('active');
+
+            setTimeout(() => {
+                card.classList.add('expanded-content-fade-in');
+            }, 150);
+        });
+    });
 });
